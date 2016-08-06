@@ -14,43 +14,70 @@ app.controller('main', function ($scope) {
 
     $scope.porfolio = [
         {
-            name: "Project",
-            description: "Description of the project and what it was about.",
+            name: "Project 1",
+            description: "Here you describe what the project you worked on was about and what's intersting about it,also if you have space you can explain what you did that might matter to whoever is reading.",
             role: "Role 1, Role 2...",
             technology: "Technology 1, Technolog 2...",
             platform: "Android, IOS...",
             members: "Name A, Name B....",
-            main: "3bN_wOYm9ck",
+            teaser_image: "img/portfolio/placeholder.png",
+            video: "3bN_wOYm9ck",
             img: "img/portfolio/project01/",
             imgs: [
-                "placeholder.png",
-                "placeholder.png",
-                "placeholder.png"
+                "screenshot01.png",
+                "screenshot02.png",
+                "screenshot03.png"
+            ],
+            links: [
+                {
+                    icon: "external-link",
+                    url: "http://www.goldenfrogstudios.com/"
+                },
+                {
+                    icon: "youtube-play",
+                    url: "https://youtu.be/diEgroqiHeA"
+                }
             ]
         },
         {
-            name: "Project",
-            description: "Description of the project and what it was about.",
+            name: "Project 2",
+            description: "Here you describe what the project you worked on was about and what's intersting about it,also if you have space you can explain what you did that might matter to whoever is reading.",
             role: "Role 1, Role 2...",
             technology: "Technology 1, Technolog 2...",
             platform: "Android, IOS...",
             members: "Name A, Name B....",
-            main: "3bN_wOYm9ck",
-            img: "img/portfolio/project01/",
-            imgs: [
-                "placeholder.png",
-                "placeholder.png",
-                "placeholder.png"
-            ]
+            teaser_image: "img/portfolio/placeholder.png",
+        },
+        {
+            name: "Project 3",
+            description: "Here you describe what the project you worked on was about and what's intersting about it,also if you have space you can explain what you did that might matter to whoever is reading.",
+            role: "Role 1, Role 2...",
+            technology: "Technology 1, Technolog 2...",
+            platform: "Android, IOS...",
+            members: "Name A, Name B....",
+            teaser_image: "img/portfolio/placeholder.png",
+        },
+        {
+            name: "Project 4",
+            description: "Here you describe what the project you worked on was about and what's intersting about it,also if you have space you can explain what you did that might matter to whoever is reading.",
+            role: "Role 1, Role 2...",
+            technology: "Technology 1, Technolog 2...",
+            platform: "Android, IOS...",
+            members: "Name A, Name B....",
+            teaser_image: "img/portfolio/placeholder.png",
+        },
+        {
+            name: "Project 5",
+            description: "Here you describe what the project you worked on was about and what's intersting about it,also if you have space you can explain what you did that might matter to whoever is reading.",
+            role: "Role 1, Role 2...",
+            technology: "Technology 1, Technolog 2...",
+            platform: "Android, IOS...",
+            members: "Name A, Name B....",
+            teaser_image: "img/portfolio/placeholder.png",
         }
     ];
 
     $scope.getIframeSrc = function (src) {
         return 'https://www.youtube.com/embed/' + src;
     };
-
-//    UIkit.domObserve('uk-slider', function (element) {
-//      UIkit.component.boot('slider');
-//      UIkit.init(element);
-//    });
 });

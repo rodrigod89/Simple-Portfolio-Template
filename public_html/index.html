@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Portfolio Page Title</title>
+        <link href="http://fonts.googleapis.com/css?family=Rajdhani:500,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/uikit.min.css" />
         <link rel="stylesheet" href="css/uikit.docs.min.css" />
         <link rel="stylesheet" href="css/components/slider.min.css" />
@@ -9,7 +10,7 @@
         <script src="js/jquery-3.0.0.min.js"></script>
         <script src="js/uikit.min.js"></script>
         <script src="js/components/slider.min.js"></script>
-        <script src="js/components/lightbox.min.js"></script>
+        <script src="js/core/modal.min.js"></script>
         <script src="js/components/sticky.min.js"></script>
         <script src="js/angular.min.js"></script>
         <script src="js/portfolio.js"></script>
@@ -17,12 +18,12 @@
     <body ng-app="Portfolio" ng-controller="main">
         <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 
-            <div class="uk-grid uk-grid-collapse" data-uk-sticky style="height:65px">
-                <a href="#" class="uk-width-2-10"> <img alt="logo" src="img/logord.png"> </a>
-                <p class="uk-width-3-5 uk-text-center uk-h2  automargin">
-                    <b>{{name}}</b>{{profession}}
+            <div class="uk-grid uk-grid-collapse topbar" data-uk-sticky style="height:65px">
+                <a href="#" class="uk-width-2-10 header-item"> <img alt="logo" src="img/logord.png"> </a>
+                <p class="uk-width-3-5 uk-text-center uk-h2 header-item">
+                    <b>{{name}}</b> {{profession}}
                 </p>
-                <div class="uk-width-2-10 uk-text-right automargin">
+                <div class="uk-width-2-10 uk-text-right header-item">
                     <a href="" class="uk-icon-hover uk-icon-medium uk-icon-justify uk-icon-linkedin "></a>
                     <a href="" class="uk-icon-hover uk-icon-medium uk-icon-justify uk-icon-facebook"></a>
                     <a href="" class="uk-icon-hover uk-icon-medium uk-icon-justify uk-icon-twitter"></a>
@@ -36,35 +37,56 @@
                     <h1 class="uk-text-center uk-margin-large-top" >Porfolio</h1>
                     <br>
 
-                    <div class="uk-grid" ng-repeat="project in porfolio">  
-                        <div class="uk-width-medium-2-5">  
-                            <iframe class="uk-responsive-width" ng-src="{{getIframeSrc(project.main)}}" width="450" height="253" frameborder="0" allowfullscreen="allowfullscreen"></iframe>  
-                        </div>
-                        <div class="uk-width-medium-3-5">  
-                            <h2>{{project.name}}</h2>
-                            <p>{{project.description}}</p>
-                            <p>
-                                <b>Role(s):</b>{{project.role}}<br>
-                                <b>Technology(s):</b>{{project.technology}}<br>
-                                <b>Platform(s):</b>{{project.platform}}<br>
-                                <b>Team Members:</b>{{project.members}}<br>
-                            </p>
-                        </div>
-
-                        <div data-uk-slider class="uk-width-medium-1-1">
-                            <div class="uk-slider-container">
-                                <ul class="uk-slider uk-grid-width-medium-1-4">
-                                    <li class="slider" ng-repeat="image in project.imgs track by $index"><a class="fullscreen" href="{{project.img + project.imgs[$index]}}" data-uk-lightbox title=""><img src="{{project.img + project.imgs[$index]}}" alt="i"></a></li>
-                                </ul>
+                    <div class="uk-grid" data-uk-grid-margin>  
+                        <div class="uk-width-medium-1-2" ng-repeat="project in porfolio">
+                            <div class="uk-panel uk-panel-box project-panel" >
+                                <div class="uk-panel-teaser teaser">
+                                    <a href="#screenshots" data-uk-modal><img src="{{project.teaser_image}}" alt=""></a>
+                                </div>
+                                <h2 class="uk-text-center">{{project.name}}</h2>
+                                <p>{{project.description}}</p>
+                                <div class="project-specs">
+                                    <b>Role(s):</b>{{project.role}}<br>
+                                    <b>Technology(s):</b>{{project.technology}}<br>
+                                    <div class="uk-text-center project-links">
+                                        <a target="_blank" ng-href="{{link.url}}" class="project-link uk-icon-button ng-class: uk-icon-{{link.icon}}" ng-repeat="link in project.links track by $index"></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
+                    <!--                        <div class="uk-width-medium-2-5">  
+                                                <iframe class="uk-responsive-width" ng-src="{{getIframeSrc(project.main)}}" width="450" height="253" frameborder="0" allowfullscreen="allowfullscreen"></iframe>  
+                                            </div>
+                                            <div class="uk-width-medium-3-5">  
+                                                <h2>{{//project.name}}</h2>
+                                                <p>{{//project.description}}</p>
+                                                <p>
+                                                    <b>Role(s):</b>{{//project.role}}<br>
+                                                    <b>Technology(s):</b>{{//project.technology}}<br>
+                                                    <b>Platform(s):</b>{{//project.platform}}<br>
+                                                    <b>Team Members:</b>{{//project.members}}<br>
+                                                </p>
+                                            </div>
+                    
+                                            <div data-uk-slider class="uk-width-medium-1-1">
+                                                <div class="uk-slider-container">
+                                                    <ul class="uk-slider uk-grid-width-medium-1-4">
+                                                        <li class="slider" ng-repeat="//image in project.imgs track by $index"><a class="fullscreen" href="{{project.img + project.imgs[$index]}}" data-uk-lightbox title=""><img src="{{project.img + project.imgs[$index]}}" alt="i"></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>-->
+
 
                 </div>
 
             </div>
         </div>
-
+        <div id="screenshots" class="uk-modal">
+            <div class="uk-modal-dialog">
+                screenshots go here
+                <a class="uk-modal-close uk-close"></a>
+            </div>
+        </div>
     </body>
 </html>
