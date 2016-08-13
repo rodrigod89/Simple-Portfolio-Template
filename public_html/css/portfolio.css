@@ -7,6 +7,13 @@ h1,h2,h3,h4{
     font-family: 'Rajdhani', sans-serif;
 }
 
+h1 {
+    padding-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
 
 .fullscreen{
     display: block;
@@ -41,4 +48,8 @@ h1,h2,h3,h4{
     position: absolute;
     padding-bottom: 15px;
     width: 95%;
+}
+
+.angular-with-newlines {
+    white-space: pre-wrap;
 }
